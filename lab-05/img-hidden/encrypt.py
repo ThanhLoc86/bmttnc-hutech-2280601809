@@ -7,7 +7,6 @@ def encode_image(image_path, message):
     pixel_index = 0
     binary_message = ''.join(format(ord(char), '08b') for char in message)
     binary_message += '1111111111111110'  # Đánh dấu kết thúc thông điệp
-
     data_index = 0
     for row in range(height):
         for col in range(width):
@@ -18,15 +17,13 @@ def encode_image(image_path, message):
                     data_index += 1
             img.putpixel((col, row), tuple(pixel))
             if data_index >= len(binary_message):
-                    break
-           
-
+                break
     encoded_image_path = 'encoded_image.png'
     img.save(encoded_image_path)
     print("Steganography complete. Encoded image saved as", encoded_image_path)
 
 def main():
-    if len(sys.argv) == 3:
+    if len(sys.argv) != 3:
         print("Usage: python encrypt.py <image_path> <message>")
         return
     image_path = sys.argv[1]
