@@ -11,7 +11,7 @@ def packet_handler(packet):
     if packet.haslayer(Raw):
         print("Captured Packet:")
         print(str(packet))
-
+    
 # Lấy danh sách các giao diện mạng
 interfaces = get_interfaces()
 
