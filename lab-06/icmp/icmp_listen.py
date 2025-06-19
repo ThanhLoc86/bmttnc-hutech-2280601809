@@ -10,7 +10,11 @@ def packet_callback(packet):
         print(f"Code: {icmp_packet.code}")
         print(f"ID: {icmp_packet.id}")
         print(f"Sequence: {icmp_packet.seq}")
-        print(f"Load: {icmp_packet.load}")
+        # Kiểm tra nếu có payload (Raw layer)
+        if packet.haslayer(Raw):
+            print(f"Load: {packet[Raw].load}")
+        else:
+            print("Load: None")
         print("-" * 30)
 
 def main():
