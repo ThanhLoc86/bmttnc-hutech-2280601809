@@ -7,7 +7,8 @@ class VigenereCipher:
         key_index = 0
         for char in plain_text:
             if char.isalpha():
-                key_shift = ord(key[key_index % len(key)]).upper() - ord('A')
+                key_char = key[key_index % len(key)].upper()
+                key_shift = ord(key_char) - ord('A')
                 if char.isupper():
                     encrypted_text += chr((ord(char) - ord('A') + key_shift) % 26 + ord('A'))
                 else:
@@ -22,7 +23,8 @@ class VigenereCipher:
         key_index = 0
         for char in encrypted_text:
             if char.isalpha():
-                key_shift = ord(key[key_index % len(key)]).upper() - ord('A')
+                key_char = key[key_index % len(key)].upper()
+                key_shift = ord(key_char) - ord('A')
                 if char.isupper():
                     decrypted_text += chr((ord(char) - ord('A') - key_shift) % 26 + ord('A'))
                 else:

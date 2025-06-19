@@ -1,6 +1,6 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
-from ui.rsa_cipher import Ui_RSA_Cipher
+from ui.rsa import Ui_RSA_Cipher
 import requests
 
 class MyApp(QMainWindow):
